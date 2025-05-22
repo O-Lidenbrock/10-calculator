@@ -1,8 +1,12 @@
 const display = document.querySelector(".display");
 let currentNum = "";
 let waitingNum, operator;
+let isDecimal = false;
 
-const clearCurrent = () => currentNum = "";
+const clearCurrent = () => {
+  currentNum = ""
+  isDecimal = false
+};
 const clearWaiting = () => waitingNum = "";
 const clearOperator = () => operator = "";
 const clearDisplay = () => display.textContent = "";
@@ -15,6 +19,10 @@ const clearCalculator = () => {
 }
 
 const updateNumber = (a) => {
+  if(a == "." && isDecimal){
+    return
+  }
+  if(a == ".") isDecimal = true;
   currentNum = "" + currentNum + a;
   display.textContent = currentNum;
 }
@@ -26,7 +34,7 @@ const updateOperator = (o) => {
   }
   else{
     logEquation("beforeElse");
-    waitingNum = currentNum;
+    waitingNum = waitingNum ?? currentNum; //so on this line it breaks when you click equals and then an operator.
     clearCurrent();
   }
   operator = o;
