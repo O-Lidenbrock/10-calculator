@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="calculator.js" defer></script>
+</head>
+<body>
+  <div class="display">Hello</div>
+  <div class="controls">
+    <div class="numbers">
+      <button onclick="updateNumber('1')">1</button>
+      <button onclick="updateNumber('2')">2</button>
+      <button onclick="updateNumber('3')">3</button>
+      <button onclick="updateNumber('4')">4</button>
+      <button onclick="updateNumber('5')">5</button>
+      <button onclick="updateNumber('6')">6</button>
+      <button onclick="updateNumber('7')">7</button>
+      <button onclick="updateNumber('8')">8</button>
+      <button onclick="updateNumber('9')">9</button>
+      <button onclick="updateNumber('0')">0</button>
+      <button onclick="updateNumber('.')">.</button>
+      <button class="equals" onclick="operate()">=</button>
+    </div>
+    <div class="operators">
+      <button onclick="updateOperator('+')">+</button>
+      <button onclick="updateOperator('-')">-</button>
+      <button onclick="updateOperator('*')">×</button>
+      <button onclick="updateOperator('/')">/</button>
+    </div>
+  </div>
+  <button class="clear" onclick="clearCalculator()">clear</button>
+  <style>
+    :root{
+      --gap: .25rem;
+      --max-width: 400px;
+    }
+    body{
+      font-size: 5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      margin-right: auto;
+      margin-left: auto;
+      width: 100%;
+      max-width: var(--max-width);
+      gap: var(--gap)
+    }
+    .display{
+      display: flex;
+      justify-content: flex-end;
+      white-space: nowrap;
+      overflow: hidden;
+      box-sizing: border-box;
+      border-style: groove;
+      border-width: 6px;
+      border-color: grey;
+      background-color:  #229954;
+      font-family: "Silkscreen", monospace;
+      padding-right: var(--gap);
+      width: 100%;
+      max-width: var(--max-width);
+      min-height: 95px;
+    }
+    .controls{
+      display:flex;
+      justify-content: center;
+      gap: var(--gap);
+      width: 100%;
+    }
+    button{
+      font-size: inherit;
+      box-sizing: border-box;
+      padding: .5rem 1rem;
+    }
+    .numbers {
+      display: grid;
+      grid: repeat(3, 1fr) / repeat(3,1fr);
+      gap: var(--gap);
+    }
+    .operators {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: var(--gap);
+    }
+    .clear{
+      display: block;
+      align-self: flex-end;
+    }
+  </style>
+
+</body>
+</html>
